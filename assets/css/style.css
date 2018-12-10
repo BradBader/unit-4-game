@@ -1,0 +1,52 @@
+body {
+    background-image:url("../images/background.jpeg");
+}
+
+
+.box1 {
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+}
+
+.box2 {
+    background-color: beige;
+    color: green;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+}
+
+.scoreBox {
+    background-color: green;
+    color: black;
+    text-align: center;
+}
+
+.box4 {
+    background-color: green;
+    color: black;
+    text-align: left;
+}
+
+.box5 {
+    height: 100px;
+}
+
+.mrgt {
+    margin-top: 10px;
+}
+
+.crystal {
+    /* padding: 0px; */
+    border: white solid 1px;
+    display: block;
+}
+
+.mrgl {
+    margin-left: 20px;
+}
+
+.mrgl2 {margin-left: 15px;}
+.mrgr {margin-right: 15px;}
