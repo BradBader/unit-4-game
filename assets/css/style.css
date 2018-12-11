@@ -50,3 +50,9 @@ body {
 
 .mrgl2 {margin-left: 15px;}
 .mrgr {margin-right: 15px;}
+
+h1 {font-size: 40px;
+    style: bold;}
+h2 {font-size: 30px;}
+h3 {font-size: 25px;}
+h4 {font-size: 20px;}

@@ -1,6 +1,4 @@
 var pcGenerated;
-var maxNum = 139;
-var minNum = 19;
 var i = 0;
 var crystalOne;
 var crystalTwo;
@@ -12,19 +10,17 @@ var totScore = 0;
 var wins=0;
 var lost=0;
 
-
-
 // Generates variable values
 function generateNumbers() {
-    pcGenerated = Math.floor(Math.random() * (maxNum - minNum + 2))
-    $(".pointsNeeded").html(pcGenerated)
+    pcGenerated = Math.floor(Math.random() * (120 - 19 + 1))
+    $(".pointsNeeded").text(pcGenerated)
     crystalOne = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
     crystalTwo = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
     crystalThree = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
     crystalFour = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
     //runs check on each variable, if outside min/max range, generates again
     if (pcGenerated < 19 || pcGenerated > 120) {
-        pcGenerated = Math.floor(Math.random() * (maxNum - minNum + 1))
+        pcGenerated = Math.floor(Math.random() * (120 - 19 + 1))
         $(".pointsNeeded").text(pcGenerated)
     }
     if (crystalOne < 1 || crystalOne > 12) {
@@ -55,6 +51,7 @@ function scoreCheck() {
         generateNumbers();
          $(".wins").text("Wins: " + wins);
          $(".tally").text(totScore);
+         document.getElementById("youWin").play();
     }
 
     if (totScore > pcGenerated) {
@@ -63,6 +60,7 @@ function scoreCheck() {
         generateNumbers();
         $(".losses").text("Losses:" + lost);
         $(".tally").text(totScore);
+        document.getElementById("youLost").play();
     }
 }
 
