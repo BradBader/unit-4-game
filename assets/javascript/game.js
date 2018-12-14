@@ -5,37 +5,35 @@ var crystalTwo;
 var crystalThree;
 var crystalFour;
 var crystalMin = 1;
-var crystalMax = 13;
+var crystalMax = 12;
 var totScore = 0;
-var wins=0;
-var lost=0;
+var wins = 0;
+var lost = 0;
+var newCrystals = [];
+var crystalsArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // Generates variable values
 function generateNumbers() {
-    pcGenerated = Math.floor(Math.random() * (120 - 19 + 1))
+    pcGenerated = Math.round(Math.random() * (120 - 19 + 1) + 19)
     $(".pointsNeeded").text(pcGenerated)
-    crystalOne = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
-    crystalTwo = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
-    crystalThree = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
-    crystalFour = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
-    //runs check on each variable, if outside min/max range, generates again
-    if (pcGenerated < 19 || pcGenerated > 120) {
-        pcGenerated = Math.floor(Math.random() * (120 - 19 + 1))
-        $(".pointsNeeded").text(pcGenerated)
+    for (i=0; i < 4; i++) {
+        var numbers = Math.floor((Math.random() *crystalsArr.length +0 ));
+        var temporary = crystalsArr[numbers];
+        newCrystals.push(temporary);
+        crystalsArr.splice(numbers, 1);
     }
-    if (crystalOne < 1 || crystalOne > 12) {
-        crystalOne = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
-    }
-    if (crystalTwo < 1 || crystalTwo > 12) {
-        crystalTwo = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
-    }
-    if (crystalThree < 1 || crystalThree > 12) {
-        crystalThree = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
-    }
-    if (crystalFour < 1 || crystalFour > 12) {
-        crystalFour = Math.floor(Math.random() * (crystalMax - crystalMin + 2));
-    }
-
+    //assigns value to crystal one
+    crystalOne=(newCrystals[0]);
+    console.log(crystalOne);
+    //assigns value to crystal two
+    crystalTwo=(newCrystals[1]);
+    console.log(crystalTwo);
+    //assigns value to crystal three
+    crystalThree=(newCrystals[2]);
+    console.log(crystalThree);
+    //assigns value to crystal four
+    crystalFour=(newCrystals[3]);
+    console.log(crystalFour);
 }
 
 //clears running score
@@ -43,15 +41,15 @@ function clearScore() {
     totScore = 0;
 }
 
-//checks on each button click to determine whether you have win, lost, or keep going
+//checks on each button click to determine whether you have won, lost, or keep going
 function scoreCheck() {
     if (pcGenerated == totScore) {
         wins++;
         clearScore();
         generateNumbers();
-         $(".wins").text("Wins: " + wins);
-         $(".tally").text(totScore);
-         document.getElementById("youWin").play();
+        $(".wins").text("Wins: " + wins);
+        $(".tally").text(totScore);
+        document.getElementById("youWin").play();
     }
 
     if (totScore > pcGenerated) {
@@ -67,6 +65,7 @@ function scoreCheck() {
 //generates initial numbers on document ready, loads button clicks
 $(document).ready(function () {
     generateNumbers();
+
 
     $(".crystal_btn1").on("click", function () {
         console.log("clickworks");
