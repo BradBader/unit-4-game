@@ -14,6 +14,7 @@ var crystalsArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // Generates variable values
 function generateNumbers() {
+    i=0;
     pcGenerated = Math.round(Math.random() * (120 - 19 + 1) + 19)
     $(".pointsNeeded").text(pcGenerated)
     for (i=0; i < 4; i++) {
@@ -24,20 +25,18 @@ function generateNumbers() {
     }
     //assigns value to crystal one
     crystalOne=(newCrystals[0]);
-    console.log(crystalOne);
     //assigns value to crystal two
     crystalTwo=(newCrystals[1]);
-    console.log(crystalTwo);
     //assigns value to crystal three
     crystalThree=(newCrystals[2]);
-    console.log(crystalThree);
     //assigns value to crystal four
     crystalFour=(newCrystals[3]);
-    console.log(crystalFour);
 }
 
 //clears running score
 function clearScore() {
+    newCrystals = [];
+    crystalsArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     totScore = 0;
 }
 
@@ -68,28 +67,24 @@ $(document).ready(function () {
 
 
     $(".crystal_btn1").on("click", function () {
-        console.log("clickworks");
         totScore = (totScore + crystalOne);
         $(".tally").text(totScore);
         scoreCheck();
     })
 
     $(".crystal_btn2").on("click", function () {
-        console.log("clickworks");
         totScore = (totScore + crystalTwo);
         $(".tally").text(totScore);
         scoreCheck();
     })
 
     $(".crystal_btn3").on("click", function () {
-        console.log("clickworks");
         totScore = (totScore + crystalThree);
         $(".tally").text(totScore);
         scoreCheck();
     })
 
     $(".crystal_btn4").on("click", function () {
-        console.log("clickworks")
         totScore = (totScore + crystalFour);
         $(".tally").text(totScore);
         scoreCheck();
